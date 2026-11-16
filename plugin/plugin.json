@@ -39,6 +39,7 @@
         "composerIcon": "./assets/icon-brasil.png"
       },
       "review": {
+        "demo_recording_url": "https://github.com/nivandosoares/brasil-noticias/releases/download/v0.1.0/Screencast.From.2026-11-16.10-52-46.mp4",
         "prompts": [
           "Abra o boletim Brasil Notícias.",
           "Quais são as fontes e os critérios editoriais?",

@@ -16,7 +16,7 @@ Atualizado em 2026-11-16.
 - Testes técnicos locais passaram; consulta com fontes reais funcionou.
 
 ## Ainda necessário para submissão
-1. Gravação da versão empacotada funcionando no host real. A prévia em host simulado não substitui a gravação. Link ainda ausente.
+1. Gravação parcial recebida e publicada: https://github.com/nivandosoares/brasil-noticias/releases/download/v0.1.0/Screencast.From.2026-11-16.10-52-46.mp4. Mostra consultas no chat; complementar com boletim inline, filtros e botão de pergunta.
 2. Confirmar no portal a identidade individual verificada e a aceitação do nome público solicitado “Brasil Notícias”. Não inferir identidade civil da marca.
 3. Usar um fluxo que preserve a propriedade da App canônica Sites existente. Não criar plugin/app duplicado como atalho. O endpoint ainda está com audiência privada, a ser reconciliada no fluxo de revisão e disponibilização pública.
 4. Completar acesso do revisor, verificação de domínio, conexão, varreduras e execução conversacional dos casos na versão salva.
@@ -25,7 +25,7 @@ Atualizado em 2026-11-16.
 ## Resultados dos casos conversacionais
 - Positivos 1–5: NOT RUN no host da submissão. Há testes técnicos, que não substituem essa execução.
 - Negativos 1–3: NOT RUN no host da submissão.
-- Demonstração: NOT RECORDED.
+- Demonstração: RECORDED — PARTIAL COVERAGE. URL pública verificada; ver video-qa/assessment.md.
 - Upload de rascunho: NOT UPLOADED.
 - Revisão pública: NOT SUBMITTED.
 - Diretório público: NOT PUBLISHED.
