@@ -55,3 +55,7 @@ Suporte: [GitHub Issues](https://github.com/nivandosoares/brasil-noticias/issues
 ## Licença
 
 Código sob [MIT](LICENSE). Textos, marcas e conteúdo jornalístico pertencem aos respectivos titulares e não são abrangidos pela licença do código. Projeto independente, sem afiliação presumida aos veículos listados.
+
+## Candidato ao diretório
+
+O diretório `plugin/` contém um pacote candidato, com ícone e oito casos de revisão. Consulte [review/status.md](review/status.md) para os bloqueios atuais. Ainda não foi enviado à revisão. A versão do pacote candidato é 1.0.1, preservando a sequência do plugin privado; as releases deste repositório acompanham o código público em 0.x.

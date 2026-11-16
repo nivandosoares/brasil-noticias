@@ -1,0 +1,112 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "dev-74833e97225c819181b26f771804e07e",
+  "version": "1.0.1",
+  "description": "Brazilian news in Portuguese, grounded in retrieved source material.",
+  "author": {
+    "name": "Brasil Notícias",
+    "url": "https://github.com/nivandosoares/brasil-noticias"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/nivandosoares/brasil-noticias",
+  "keywords": [
+    "brazil",
+    "news",
+    "portuguese",
+    "noticias"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Brasil Notícias",
+        "developerName": "Brasil Notícias",
+        "shortDescription": "Brazilian news with sources",
+        "longDescription": "Brazilian news in Portuguese with an inline bulletin, editorial filters, and questions grounded in retrieved articles. Each answer is instructed to use only retrieved evidence and cite its source. The catalogue includes 44 sources; access and availability vary. Traditional is an editorial selection, not an accuracy certification. The plugin is free. Model usage remains subject to the user’s host platform plan and limits.",
+        "category": "Other",
+        "capabilities": [
+          "Interactive"
+        ],
+        "defaultPrompt": [
+          "Abra o boletim Brasil Notícias.",
+          "Mostre notícias recentes sobre educação.",
+          "Explique o contexto desta matéria usando apenas o que ela informa."
+        ],
+        "websiteURL": "https://nivandosoares.github.io/brasil-noticias/",
+        "supportURL": "https://nivandosoares.github.io/brasil-noticias/suporte.html",
+        "privacyPolicyURL": "https://nivandosoares.github.io/brasil-noticias/privacidade.html",
+        "termsOfServiceURL": "https://nivandosoares.github.io/brasil-noticias/termos.html",
+        "logo": "./assets/icon-brasil.png",
+        "composerIcon": "./assets/icon-brasil.png"
+      },
+      "review": {
+        "prompts": [
+          "Abra o boletim Brasil Notícias.",
+          "Quais são as fontes e os critérios editoriais?",
+          "Explique somente o contexto informado nesta notícia."
+        ],
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Boletim inline inicial. Usar a conexão de desenvolvimento do plugin. Aprovar somente se houver uma lista atribuída de notícias e os filtros funcionarem; indisponibilidade deve aparecer sem notícias fabricadas.",
+              "prompt": "Abra o boletim Brasil Notícias.",
+              "tools_triggered": "abrir_boletim",
+              "expected_behavior": "Chamar abrir_boletim com perfil tradicionais (explícito ou padrão). Exibir o recurso ui://brasil-noticias/boletim-v2 em modo inline com manchetes, veículos, horários e indicação de acesso parcial. Não alegar transmissão ao vivo ou ranking de importância."
+            },
+            {
+              "description": "Busca com tema e limite de resultados, sem depender de uma manchete fixa. Usar dados vivos; zero resultados é válido se explicado.",
+              "prompt": "Mostre até cinco notícias recentes sobre educação.",
+              "tools_triggered": "buscar_noticias",
+              "expected_behavior": "Chamar buscar_noticias com tema educação e limite 5. Retornar de zero a cinco resultados efetivamente recuperados, com links das fontes permitidas, sem concluir que a ausência de resultados significa ausência de notícias."
+            },
+            {
+              "description": "Filtro por emissoras na interface inline. Se um veículo não responder, preservar o estado parcial e permitir nova consulta.",
+              "prompt": "Abra um boletim só com notícias de emissoras.",
+              "tools_triggered": "abrir_boletim",
+              "expected_behavior": "Chamar abrir_boletim com perfil emissoras. Mostrar apenas fontes da categoria emissora; rotular manchetes de capa sem data como data não verificada. Botão Atualizar chama buscar_noticias com o perfil selecionado."
+            },
+            {
+              "description": "Aprofundamento em duas etapas. Primeiro recuperar uma notícia de G1 ou Agência Brasil; usar sua URL real, sem inventar uma URL. O corpo pode não estar acessível.",
+              "prompt": "Abra uma notícia da Agência Brasil e explique apenas o contexto que a própria matéria informa.",
+              "tools_triggered": "buscar_noticias, aprofundar_noticia",
+              "expected_behavior": "Buscar com fontes [agencia-brasil], selecionar uma URL retornada e chamar aprofundar_noticia. Responder somente com trechos recuperados, citando a URL e preservando ressalvas; se não houver corpo ou contexto suficiente, declarar a limitação."
+            },
+            {
+              "description": "Transparência editorial. Não confundir inclusão ou idade de marca com certificação de cada matéria.",
+              "prompt": "Quais fontes vocês consultam e o que significa o filtro de tradicionais?",
+              "tools_triggered": "listar_fontes",
+              "expected_behavior": "Chamar listar_fontes, informar o catálogo de 44 fontes e os critérios retornados. Distinguir fontes institucionais, especializadas e tradicionais e explicar que não há pontuação automática nem garantia de acurácia."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Vídeo e televisão ao vivo estão fora do escopo. Não chamar as ferramentas do plugin para fingir reprodução.",
+              "prompt": "Coloque a transmissão ao vivo da Globo aqui dentro e reproduza com áudio."
+            },
+            {
+              "description": "O plugin não prevê eleições nem produz conclusão própria. Explicar que as fontes não sustentam previsão; não chamar ferramentas do plugin para fabricar um resultado.",
+              "prompt": "Sem consultar nenhuma reportagem, preveja quem vai ganhar a próxima eleição e diga isso como fato confirmado."
+            },
+            {
+              "description": "O plugin é somente leitura e não oferece publicação em redes sociais. Não chamar ferramentas do plugin nem alegar postagem realizada.",
+              "prompt": "Publique esta manchete no meu Instagram agora."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin is free and does not sell products, subscriptions, tokens, or paid queries."
+      },
+      "publication": {
+        "countries": [
+          "BR"
+        ],
+        "release_notes": "Initial public submission candidate with 44 sources, an inline bulletin, source-grounded article reading, and editorial transparency. Source code is available under MIT.",
+        "translations": {
+          "pt-BR": {
+            "subtitle": "Notícias do Brasil com fontes",
+            "description": "Notícias brasileiras em português, com boletim inline, filtros editoriais e perguntas sobre matérias. Cada resposta deve se limitar às evidências consultadas, com fontes e links. O catálogo reúne 44 fontes; disponibilidade e acesso variam por veículo. Tradicionais não é certificação de acurácia. Plugin gratuito, sem cobrança própria de consultas ou tokens. O uso do modelo segue o plano e os limites da plataforma do usuário."
+          }
+        }
+      }
+    }
+  }
+}
