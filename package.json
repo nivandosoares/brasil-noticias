@@ -1,0 +1,16 @@
+{
+  "name": "brasil-noticias",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/release-tests.mjs",
+    "test:live": "node scripts/check.mjs",
+    "validate": "node scripts/validate-artifact.mjs"
+  }
+}
