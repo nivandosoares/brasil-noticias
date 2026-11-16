@@ -1,5 +1,12 @@
 # Histórico de versões
 
+## 0.1.1 — 2026-11-16
+
+- Instrução explícita para pedidos de boletim invocarem a ferramenta de painel.
+- Metadados de interface modernos e aliases de compatibilidade, com domínio e permissões declarados.
+- URI HTML versionada para evitar reaproveitar um recurso de interface em cache; URI anterior continua aceita.
+- A verificação visual no host real permanece pendente; não declarar o problema resolvido apenas pelos testes de protocolo.
+
 ## 0.1.0 — 2026-11-16
 
 Primeira versão pública do código-fonte. Publicação no diretório de plugins permanece pendente de revisão.
