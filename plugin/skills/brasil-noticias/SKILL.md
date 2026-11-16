@@ -20,3 +20,7 @@ Use `listar_fontes` para explicar o catálogo e os critérios. Tradicionais é u
 ## Limites e custos
 
 O plugin não reproduz televisão ou áudio ao vivo, não publica em redes sociais, não prevê fatos nem cobra consultas. Não exige chave de API do usuário. O modelo do host faz a interpretação e a resposta; o uso fica sujeito ao plano, aos créditos e aos limites da conta do usuário na plataforma escolhida. Não prometa tokens ou consultas ilimitadas. Hospedagem é um custo separado do serviço.
+
+## Abertura do painel
+
+Quando o usuário pedir “abra o boletim”, “abrir boletim” ou o painel de notícias, invoque `abrir_boletim`, e não `buscar_noticias`. Não substitua a solicitação de interface por uma lista redigida em texto. Se `abrir_boletim` não estiver disponível, diga que a ferramenta de painel não está carregada nesta conversa. Se a ferramenta responder mas o host não exibir a interface, informe a limitação e não declare que filtros ou botões foram mostrados. Nunca peça uma gravação de um painel que ainda não foi observado funcionando no host real.
