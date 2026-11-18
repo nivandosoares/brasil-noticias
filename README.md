@@ -1,3 +1,13 @@
+# Brasil Notícias
+
+Plugin de notícias brasileiras com fontes, boletim inline e worker para coleta.
+
+**Arquivos principais**
+
+- [app/boletim.html](<app/boletim.html>)
+- [worker/](<worker/>)
+- [docs/](<docs/>)
+
 <p align="center"><img src="assets/icon.png" alt="Brasil Notícias" width="160"></p>
 
 # Brasil Notícias
